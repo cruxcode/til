@@ -52,6 +52,12 @@ The `createServer` function in this file creates and returns an instance of `Nex
 
 The `DevServer` class calls `super`...........
 
+#### `packages/next/server/next-server.ts`
+
+#### `packages/next/server/loadComponents.ts`
+
+The `loadComponents` function.
+
 Next.JS uses `webpack.MultiCompiler`. Also, Next.JS seems to be using it's own version of the `webpack-dev-server`. Whenever the `DevServer` receives request for a new page, the new entry is added to the webpack `entry` and `compiler.watching?.invalidate()` is called. This is made possible due to the Webpack's [dynamic entry](https://webpack.js.org/configuration/entry-context/#dynamic-entry) feature.
 
 Next.JS has created many `webpack` loaders and one such loader is `next-client-pages-loader`. Next.JS uses another feature of Webpack called [inline](https://webpack.js.org/concepts/loaders/#inline) loaders. Using this feature, the `absolutePagePath` and `page` is passed to `next-client-pages-loader` that returns a code that looks like below:
